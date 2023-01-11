@@ -1,0 +1,16 @@
+# inherits = "rose_pine"
+inherits = "tokyonight_storm"
+
+"ui.background" = { fg = "white"}
+"ui.background.separator" = { fg = "gray" }
+"ui.menu" = { fg = "white", background = "white" }
+"ui.menu.selected" = { modifiers = ["reversed"] }
+"ui.menu.scroll" = { fg = "white" }
+"ui.linenr" = { fg = "white" }
+"ui.linenr.selected" = { fg = "white",  modifiers = ["bold"] }
+"ui.popup" = { fg = "white" }
+"ui.window" = { fg = "white" }
+"ui.selection" = { bg = "gray" }
+"ui.statusline" = { fg = "white" }
+"ui.statusline.inactive" = { fg = "gray" }
+"ui.help" = { fg = "white" }
