@@ -1,0 +1,32 @@
+set fish_greeting
+
+starship init fish | source
+
+set -x BAT_THEME Dracula
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/public_mm/bin:$PATH"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
+    eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
+
+# string match -q "$TERM_PROGRAM" "vscode"
+# and . (code --locate-shell-integration-path fish)
+
+set -Ux EDITOR nvim
+
+# Commands to run in interactive sessions can go here
+
+abbr -a ghv 'gh repo view --web'
+abbr -a c code .
+abbr -a lg lazygit
+abbr -a v nvim
+abbr -a prp 'poetry run python'
+abbr -a prv 'poetry run nvim'
+
