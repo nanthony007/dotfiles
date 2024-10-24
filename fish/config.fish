@@ -22,6 +22,7 @@ abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
 # end
 # disable greeting
 set fish_config theme "Catppuccin Mocha"
+set BAT_THEME base16
 
 set -U fish_greeting
 
@@ -53,8 +54,8 @@ end
 
 # init starship prompt (pure)
 # starship init fish | source
-# init zoxide
 zoxide init fish | source
+fzf --fish | source
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -70,8 +71,8 @@ end
 # <<< conda initialize <<<
 
 # pnpm
-set -gx PNPM_HOME "/Users/nick/Library/pnpm"
+set -gx PNPM_HOME /Users/nick/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end

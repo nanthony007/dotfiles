@@ -48,3 +48,8 @@ keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
 
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+
+-- toggle inlay hints
+keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))<cr>",
+	{ desc = "Toggle Inlay Hints" }
+)

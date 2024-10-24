@@ -44,10 +44,14 @@ return {
 			pyright = {},
 			ruff = {},
 			rust_analyzer = {},
+			lua_ls = {},
+			marksman = {},
 			jsonls = {},
 			astro = {},
+			svelte = {},
 			tailwindcss = {},
-			tsserver = {},
+			ts_ls = {},
+			denols = {},
 		},
 		-- you can do any additional lsp server setup here
 		-- return true if you don't want this server to be setup with lspconfig
@@ -62,11 +66,11 @@ return {
 		},
 	},
 	keys = {
-		{ "K", vim.lsp.buf.hover, desc = "Hover item" },
-		{ "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
-		{ "gr", vim.lsp.buf.references, desc = "Goto References" },
-		{ "ca", vim.lsp.buf.code_action, desc = "Code action" },
-		{ "cr", vim.lsp.buf.rename, desc = "Rename" },
+		{ "K",  vim.lsp.buf.hover,        desc = "Hover item" },
+		{ "gd", vim.lsp.buf.definition,   desc = "Goto Definition" },
+		{ "gr", vim.lsp.buf.references,   desc = "Goto References" },
+		{ "ca", vim.lsp.buf.code_action,  desc = "Code action" },
+		{ "cr", vim.lsp.buf.rename,       desc = "Rename" },
 		{ "[d", vim.diagnostic.goto_next, desc = "Next diagnostic" },
 		{ "]d", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
 	},
@@ -99,6 +103,7 @@ return {
 		end
 		lspconfig.gopls.setup({})
 		lspconfig.lua_ls.setup({})
+		lspconfig.marksman.setup({})
 		lspconfig.ruff.setup({
 			on_attach = on_attach,
 		})
@@ -116,7 +121,24 @@ return {
 			},
 		})
 		lspconfig.astro.setup({})
-		lspconfig.tsserver.setup({})
+		lspconfig.svelte.setup({})
 		lspconfig.tailwindcss.setup({})
+		lspconfig.ts_ls.setup({})
+
+		lspconfig.denols.setup {
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+		}
+
+		lspconfig.ts_ls.setup {
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			single_file_support = false
+		}
+		lspconfig.tailwindcss.setup {
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("tailwind.config.js"),
+			single_file_support = false
+		}
 	end,
 }
