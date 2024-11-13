@@ -53,3 +53,11 @@ keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
 keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))<cr>",
 	{ desc = "Toggle Inlay Hints" }
 )
+
+-- gitsigns next chunk
+keymap.set("n", "[c", "<cmd>Gitsigns prev_hunk<cr>",
+	{ desc = "Gitsigns Prev Hunk" }
+)
+keymap.set("n", "]c", "<cmd>Gitsigns next_hunk<cr>",
+	{ desc = "Gitsigns Next Hunk" }
+)
