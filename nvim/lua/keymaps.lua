@@ -61,3 +61,5 @@ keymap.set("n", "[c", "<cmd>Gitsigns prev_hunk<cr>",
 keymap.set("n", "]c", "<cmd>Gitsigns next_hunk<cr>",
 	{ desc = "Gitsigns Next Hunk" }
 )
+
+keymap.set("n", "<leader>lu", "<cmd>Lazy update<cr>")

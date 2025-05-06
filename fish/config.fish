@@ -8,6 +8,7 @@ abbr -a g git
 abbr -a gs 'git status'
 abbr -a gho 'gh repo view --web'
 abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
+abbr -a uve 'uv run nvim'
 
 # always activate tmux on new window
 #if status --is-interactive
@@ -15,7 +16,6 @@ abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
 #exec tmux
 #end
 #end
-
 
 # function fish_greeting
 # 	echo "MY GREETING"
@@ -28,10 +28,11 @@ set -U fish_greeting
 
 set -g fish_prompt_pwd_dir_length 3
 
-# set -g fish_vi_key_bindings
+set -g fish_key_bindings fish_vi_key_bindings
 
 function fish_prompt
     # set_color brblack
+    # set_color normal
     set_color yellow
     echo -n "["(date "+%H:%M")"]"
     set_color red

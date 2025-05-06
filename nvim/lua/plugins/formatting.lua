@@ -11,7 +11,7 @@ return {
 			fish = { "fish_indent" },
 			json = { "jq" },
 			just = { "just" },
-			sh = { "shfmt", "shellcheck" },
+			sh = { "shfmt", "shellharden" },
 			typst = { "typstfmt" },
 			md = { "mdformat" },
 		},
