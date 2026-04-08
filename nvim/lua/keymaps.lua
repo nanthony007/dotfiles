@@ -3,6 +3,18 @@ vim.g.maplocalleader = " "
 
 local keymap = vim.keymap
 
+local function toggle_theme()
+	local current = vim.g.colors_name or ""
+
+	if current == "gruvbox-material" then
+		vim.cmd.colorscheme("catppuccin")
+		print("Theme: Catppuccin Mocha")
+	else
+		vim.cmd.colorscheme("gruvbox-material")
+		print("Theme: Gruvbox Material")
+	end
+end
+
 -- better up/down
 keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -42,24 +54,20 @@ keymap.set("v", ">", ">gv")
 keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 
-keymap.set("t", "<C-x>", "vim.api.nvim_replace_termcodes('<C-\\><C-N>', true, true, true)")
-
-keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
-
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
 
--- toggle inlay hints
-keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))<cr>",
-	{ desc = "Toggle Inlay Hints" }
-)
+keymap.set("n", "<leader>i", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
+keymap.set("n", "cr", vim.lsp.buf.rename, { desc = "Rename" })
+keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
--- gitsigns next chunk
-keymap.set("n", "[c", "<cmd>Gitsigns prev_hunk<cr>",
-	{ desc = "Gitsigns Prev Hunk" }
-)
-keymap.set("n", "]c", "<cmd>Gitsigns next_hunk<cr>",
-	{ desc = "Gitsigns Next Hunk" }
-)
+keymap.set("n", "<leader>tt", toggle_theme, { desc = "Toggle theme" })
+keymap.set("n", "<leader>th", vim.lsp.inlay_hint.enable, { desc = "Toggle inlay hint" })
 
-keymap.set("n", "<leader>lu", "<cmd>Lazy update<cr>")
+-- snippet to use Enter in builtin-completion menu
+vim.keymap.set("i", "<CR>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-y>"
+	end
+	return "<CR>"
+end, { expr = true, silent = true })

@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.winborder = "rounded"
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
@@ -43,7 +44,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+opt.wrap = true -- Enable line wrap
 opt.fillchars = {
 	foldopen = "",
 	foldclose = "",
@@ -53,6 +54,10 @@ opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
+-- NEW w/ 0.12 autocomplete
+-- opt.autocomplete = true
+-- opt.pumborder = "rounded"
+-- opt.pummaxwidth = 40
 
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
@@ -63,3 +68,10 @@ vim.opt.foldlevel = 99
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+vim.diagnostic.config({
+	virtual_text = true,
+	virtual_lines = false,
+})
+
+-- require("vim._core.ui2").enable()
