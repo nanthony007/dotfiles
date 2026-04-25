@@ -52,25 +52,25 @@ api.nvim_create_autocmd(
 )
 
 -- Enable spell checking for certain file types
-api.nvim_create_autocmd(
-	{ "BufRead", "BufNewFile" },
-	-- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
-	{
-		pattern = { "*.txt", "*.md", "*.tex" },
-		callback = function()
-			vim.opt.spell = true
-			vim.opt.spelllang = "en"
-		end,
-	}
-)
+-- api.nvim_create_autocmd(
+-- 	{ "BufRead", "BufNewFile" },
+-- 	-- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
+-- 	{
+-- 		pattern = { "*.txt", "*.md", "*.tex" },
+-- 		callback = function()
+-- 			vim.opt.spell = true
+-- 			vim.opt.spelllang = "en"
+-- 		end,
+-- 	}
+-- )
 
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   callback = function()
---     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
---     vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
---     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
---   end,
--- })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+	end,
+})
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {

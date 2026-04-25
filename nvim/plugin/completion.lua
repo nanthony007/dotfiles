@@ -1,6 +1,3 @@
--- NOTE: disabled for now, but can turn back on
--- if built-in completions aren't cutting it
-
 vim.pack.add({
 	{
 		src = "https://github.com/saghen/blink.cmp",

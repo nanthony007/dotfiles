@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.cmdheight = 0
 opt.winborder = "rounded"
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
@@ -59,10 +60,6 @@ opt.fillchars = {
 -- opt.pumborder = "rounded"
 -- opt.pummaxwidth = 40
 
-if vim.fn.has("nvim-0.10") == 1 then
-	opt.smoothscroll = true
-end
-
 -- Folding
 vim.opt.foldlevel = 99
 
@@ -73,5 +70,3 @@ vim.diagnostic.config({
 	virtual_text = true,
 	virtual_lines = false,
 })
-
--- require("vim._core.ui2").enable()

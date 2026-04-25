@@ -1,9 +1,9 @@
 vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-	},
+	-- {
+	-- 	src = "https://github.com/nvim-treesitter/nvim-treesitter",
+	-- 	build = ":TSUpdate",
+	-- },
 })
 
 -- disabled bc prefer `ty` format for now
@@ -12,10 +12,11 @@ vim.lsp.enable({
 	-- lua
 	"lua_ls",
 	-- python
-	"pyrefly",
 	"ruff",
 	"ty",
-	"basedpyright",
+	-- "pyrefly",
+	-- "basedpyright",
+	-- "pyright",
 	-- rust
 	"rust_analyzer",
 	-- go
@@ -34,33 +35,29 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
-vim.lsp.config("basedpyright", {
-	settings = {
-		["basedpyright"] = {
-			analysis = {
-				typeCheckingMode = "strict",
-				diagnosticSeverityOverrides = {
-					reportUnknownMemberType = "information",
-				},
-			},
-		},
-	},
-})
+-- vim.lsp.config("basedpyright", {
+-- 	settings = {
+-- 		["basedpyright"] = {
+-- 			analysis = {
+-- 				typeCheckingMode = "strict",
+-- 				diagnosticSeverityOverrides = {
+-- 					reportUnknownMemberType = "information",
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 vim.diagnostic.config({ virtual_text = true })
 
-require("nvim-treesitter.config").setup({
-	ensure_installed = {
-		"lua",
-		"python",
-		"rust",
-		"json",
-		"dockerfile",
-		"typst",
-		"markdown",
-		"go",
-	},
-	sync_install = false,
-	highlight = { enable = true },
-	indent = { enable = true },
-})
+-- require("nvim-treesitter.config").setup({
+-- 	ensure_installed = {
+-- 		"lua",
+-- 		"python",
+-- 		"rust",
+-- 		"go",
+-- 	},
+-- 	sync_install = false,
+-- 	highlight = { enable = true },
+-- 	indent = { enable = true },
+-- })

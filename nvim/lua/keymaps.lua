@@ -62,7 +62,12 @@ keymap.set("n", "cr", vim.lsp.buf.rename, { desc = "Rename" })
 keymap.set("n", "ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 keymap.set("n", "<leader>tt", toggle_theme, { desc = "Toggle theme" })
-keymap.set("n", "<leader>th", vim.lsp.inlay_hint.enable, { desc = "Toggle inlay hint" })
+-- keymap.set(
+-- 	"n",
+-- 	"<leader>th",
+-- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()),
+-- 	{ desc = "Toggle inlay hint" }
+-- )
 
 -- snippet to use Enter in builtin-completion menu
 vim.keymap.set("i", "<CR>", function()

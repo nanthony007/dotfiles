@@ -1,5 +1,6 @@
 require("options")
 require("keymaps")
 require("autocmds")
--- removed, relying on `lsp-config` due to better dev-ex
--- require("lsp")
+
+-- experimental new ui
+require("vim._core.ui2").enable({ enable = true })
