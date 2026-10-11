@@ -38,7 +38,7 @@ chsh -s "$(which fish)"
 
 # move config files
 mkdir -p ~/.config
-cp -r neovim ~/.config/nvim
+cp -r nvim ~/.config/nvim
 cp -r fish ~/.config/fish
 cp .tmux.conf ~/.tmux.conf
 cp .wezterm.lua ~/.wezterm.lua
