@@ -3,4 +3,6 @@ require("keymaps")
 require("autocmds")
 
 -- experimental new ui
-require("vim._core.ui2").enable({ enable = true })
+-- this breaks noice on bottom
+-- require("vim._core.ui2").enable({ enable = true })
+

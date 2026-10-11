@@ -10,7 +10,17 @@ require("snacks").setup({
 	indent = { enabled = true },
 	image = { enabled = true },
 	lazygit = { enabled = true },
-	picker = { enabled = true },
+	picker = { 
+    enabled = true, 
+    exclude = {
+      ".git",
+      "node_modules",
+      ".venv",
+      "target",
+    },
+    ignored = true,
+    hidden = true,
+  },
 	statuscolumn = { enabled = true },
 })
 

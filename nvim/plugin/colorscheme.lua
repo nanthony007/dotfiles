@@ -1,6 +1,7 @@
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", as = "catppuccin" },
 	{ src = "https://github.com/sainnhe/gruvbox-material" },
+  { src = "https://github.com/rebelot/kanagawa.nvim" },
 })
 
 vim.g.gruvbox_material_background = "medium"
@@ -34,4 +35,34 @@ require("catppuccin").setup({
 	},
 })
 
-vim.cmd.colorscheme("catppuccin")
+require('kanagawa').setup({
+    undercurl = true,
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true},
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = true,         
+    dimInactive = false,        
+    terminalColors = true,     
+    colors = {                
+        palette = {},
+        theme = {
+            all = {
+                ui = {
+                    bg_gutter = "none"
+                }
+            }
+        }
+    },
+    overrides = function(colors)
+        return {}
+    end,
+    theme = "wave",            
+    background = {            
+        dark = "wave",       
+        light = "lotus"
+    },
+})
+
+vim.cmd.colorscheme("kanagawa-wave")

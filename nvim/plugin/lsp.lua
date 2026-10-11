@@ -1,13 +1,9 @@
 vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	-- {
-	-- 	src = "https://github.com/nvim-treesitter/nvim-treesitter",
-	-- 	build = ":TSUpdate",
-	-- },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 -- disabled bc prefer `ty` format for now
--- vim.lsp.enable("pyrefly")
 vim.lsp.enable({
 	-- lua
 	"lua_ls",
@@ -25,6 +21,7 @@ vim.lsp.enable({
 	"docker_language_server",
 })
 
+
 vim.lsp.config("rust_analyzer", {
 	settings = {
 		["rust-analyzer"] = {
@@ -34,6 +31,10 @@ vim.lsp.config("rust_analyzer", {
 		},
 	},
 })
+
+
+-- for inline script metadata/deps
+-- Initialize ty
 
 -- vim.lsp.config("basedpyright", {
 -- 	settings = {
